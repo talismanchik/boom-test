@@ -1,8 +1,6 @@
 export const sanitizeInput = (input: string): string => {
-  // Удаляем HTML теги
   const withoutTags = input.replace(/<[^>]*>/g, '');
   
-  // Экранируем специальные символы
   const escaped = withoutTags
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -19,7 +17,6 @@ export const validateEmail = (email: string): boolean => {
 };
 
 export const validatePassword = (password: string): boolean => {
-  // Минимум 8 символов, хотя бы одна буква и одна цифра
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   return passwordRegex.test(password);
 }; 
